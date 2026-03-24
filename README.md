@@ -47,7 +47,7 @@ src/main/java/com/learn/annotations/
 | `@SpringBootApplication` | Main entry point — combines `@Configuration`, `@EnableAutoConfiguration`, `@ComponentScan` |
 | `@EnableAutoConfiguration` | Auto-configures beans based on classpath dependencies |
 | `@ComponentScan` | Scans packages for components to register as beans |
-| `@Configuration` | Marks class as source of bean definitions |
+| `@Configuration` | Marks class as source of bean definitions |indicating that class declared 1 or more beans that may be processed by spring conatiner
 
 ---
 
@@ -55,7 +55,7 @@ src/main/java/com/learn/annotations/
 
 | Annotation | Layer | Use Case |
 |------------|-------|----------|
-| `@Component` | Generic | Base stereotype — use when no other fits |
+| `@Component` | Generic | Base stereotype — use when no other fits | u cannot autowire any class if it is not marked with component......... turns class into spring beans at auto scan
 | `@Service` | Business | Business logic, orchestration |
 | `@Repository` | Data | Data access, persistence |
 | `@Controller` | Presentation | MVC controllers (returns views) |
@@ -173,28 +173,16 @@ src/main/java/com/learn/annotations/
 | `GET` | `/api/guide/notify/sms` | `@Qualifier` |
 
 ---
+Relationship   | Example                  | Owner Side                     |
+|----------------|--------------------------|--------------------------------|
+| `@OneToOne`    | User → Profile           | Either (with `@JoinColumn`)    |
+| `@OneToMany`   | Department → Employees   | `@ManyToOne` side              |
+| `@ManyToOne`   | Employees → Department   | This side (has FK)             |
+| `@ManyToMany`  | Students ↔ Courses       | Either (with `@JoinTable`)     |
 
-## 🛠️ How to Run
-
-```bash
-# Clone the repository
-git clone https://github.com/your-repo/spring-boot-annotations-guide.git
-
-# Navigate to project
-cd spring-boot-annotations-guide
-
-# Run the application
-./mvnw spring-boot:run
-
-# Access the API
-http://localhost:8080/api/guide/greet/World
-```
-
----
-
-## 📖 Quick Reference Cheat Sheet
 
 ```
+
 ┌─────────────────────────────────────────────────────────────┐
 │              SPRING BOOT ANNOTATIONS CHEAT SHEET            │
 ├─────────────────────────────────────────────────────────────┤
