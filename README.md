@@ -235,6 +235,13 @@ http://localhost:8080/api/guide/greet/World
 │    @Size       → Length limit                               │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
+--------------------- **Custom Annotation**-------------
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Indexed
+public @interface Component {
+}
 
 
 ## 📄 License
